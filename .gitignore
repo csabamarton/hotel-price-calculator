@@ -1,0 +1,22 @@
+.gradle
+/build/
+
+# Java class files
+*.class
+
+# generated files
+bin/
+out/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
