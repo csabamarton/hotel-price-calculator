@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,16 +23,17 @@ public class TimeCalculatorTest {
     DateRange range2;
     DateRange range3;
     List<DateRange> ranges;
-    Map<String, Integer> dayCounter;
 
     @Before
     public void setUp() throws Exception {
         range1 = new DateRange("2018-01-02", "2018-03-31");
+
         range2 = new DateRange("2018-04-01", "2018-10-31");
         range3 = new DateRange("2018-11-01","2018-12-31");
 
         ranges = Lists.newArrayList(range1, range2, range3);
-        dayCounter = new HashMap<>();
+
+        //dayCounter = ranges.stream().collect(Collectors.toMap(range -> range.getLabel(), range -> range));
 
     }
 
@@ -116,14 +118,43 @@ public class TimeCalculatorTest {
         return !range.getFrom().isAfter(date) && !range.getTo().isBefore(date);
     }
 
+    Map<LocalDate, String> daySeason = new HashMap<>();
+
     @Test
     public void calculateHowManyDaysFromTheRanges() {
-        DateRange searchRange = new DateRange("2018-02-12", "2018-02-18");
+        DateRange searchRange = new DateRange("2018-03-20", "2018-04-18");
 
         List<LocalDate> dates = getDaysBetweenDates(searchRange);
 
+
         //TODO
+
+
+        dates.forEach(date -> checkWhichDay(date));
+        System.out.println(daySeason);
+
+        Map<String, Integer> result = ranges
+                .stream()
+                .filter(range -> daySeason.containsValue(range.getLabel()))
+                .collect(Collectors.toMap(range -> range.getLabel(), range -> Collections.frequency(daySeason.values(), range.getLabel())));
+        System.out.println(result);
+
+
     }
+
+    private void checkWhichDay(LocalDate date) {
+        daySeason.put(date, findSeason(date));
+    }
+
+    private String findSeason(LocalDate date) {
+        return ranges
+                .stream()
+                .filter(range -> isInRange(range, date))
+                .findFirst()
+                .get()
+                .getLabel();
+    }
+
 
     private List<LocalDate> getDaysBetweenDates(DateRange searchRange) {
         LocalDate start = searchRange.getFrom();

@@ -46,7 +46,7 @@ public class DateRange {
         this.to = to;
     }
 
-    static DateTimeFormatter basicFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+    static DateTimeFormatter basicFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public String getLabel() {
         if(label == null) {
