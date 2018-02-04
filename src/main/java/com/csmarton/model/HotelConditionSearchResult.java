@@ -1,11 +1,9 @@
 package com.csmarton.model;
 
-import java.util.Map;
-
 public class HotelConditionSearchResult {
     HotelConditionSearch searchParameters;
 
-    Map<String, Integer> hotelPrices;
+    Integer price;
 
     public HotelConditionSearchResult(HotelConditionSearch searchParameters) {
         this.searchParameters = searchParameters;
@@ -15,11 +13,11 @@ public class HotelConditionSearchResult {
         return searchParameters;
     }
 
-    public Map getHotelPrices() {
-        return hotelPrices;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setHotelPrices(Map<String, Integer> hotelPrices) {
-        this.hotelPrices = hotelPrices;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

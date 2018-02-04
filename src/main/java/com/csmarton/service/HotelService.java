@@ -9,5 +9,5 @@ import java.util.List;
 public interface HotelService {
     List<Hotel> getHotels();
 
-    List<HotelConditionSearchResult> processConditionSearch(HotelConditionSearch search);
+    HotelConditionSearchResult processConditionSearch(HotelConditionSearch search);
 }

@@ -1,30 +1,41 @@
-[{
-  "id": "hotel1",
-  "name": "Six-Inn***",
-  "address": {
-    "hun": "Budapest, Rózsa u. 85, 1064",
-    "de": "Budapest, Rózsa u. 85, 1064"
-  },
-  "contact": {
-    "firstname": "Mária",
-    "lastname": "Majoros",
-    "email": "gm@six-inn.com"
-  },
-  "conditions": [
-    {
-      "single": 42,
-      "double": 49,
-      "ranges": [
-        {
+[
+  {
+    "id": "hotel1",
+    "name": "Six-Inn***",
+    "address": {
+      "hun": "Budapest, Rózsa u. 85, 1064",
+      "de": "Budapest, Rózsa u. 85, 1064"
+    },
+    "contact": {
+      "firstname": "Mária",
+      "lastname": "Majoros",
+      "email": "gm@six-inn.com"
+    },
+    "conditions": [
+      {
+        "single": 42,
+        "double": 49,
+        "season": {
           "from": "2018-01-01",
           "to": "2018-03-31"
-        },
-        {
+        }
+      },
+      {
+        "single": 61,
+        "double": 66,
+        "season": {
+          "from": "2018-04-01",
+          "to": "2018-10-31"
+        }
+      },
+      {
+        "single": 42,
+        "double": 49,
+        "season": {
           "from": "2018-11-01",
           "to": "2018-12-31"
         }
-      ]
-    }
-  ]
-}
+      }
+    ]
+  }
 ]

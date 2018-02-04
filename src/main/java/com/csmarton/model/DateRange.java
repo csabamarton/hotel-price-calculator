@@ -28,7 +28,10 @@ public class DateRange {
         this.to = LocalDate.parse(to);
     }
 
-
+    public DateRange(LocalDate from, LocalDate to) {
+        this.from = from;
+        this.to = to;
+    }
 
     public LocalDate getFrom() {
         return from;

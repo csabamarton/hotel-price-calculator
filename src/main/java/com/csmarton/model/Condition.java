@@ -2,11 +2,9 @@ package com.csmarton.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
-class Condition {
-    @JsonProperty(value = "ranges")
-    private List<DateRange> ranges;
+public class Condition {
+    @JsonProperty(value = "season")
+    private DateRange range;
 
     @JsonProperty(value = "single")
     private int singlePrice;
@@ -20,14 +18,12 @@ class Condition {
     public Condition(String single) {
     }
 
-
-
-    public List<DateRange> getRanges() {
-        return ranges;
+    public DateRange getRange() {
+        return range;
     }
 
-    public void setRanges(List<DateRange> ranges) {
-        this.ranges = ranges;
+    public void setRange(DateRange range) {
+        this.range = range;
     }
 
     public int getSinglePrice() {
